@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.btnStartRegister:
-//                intent = new Intent(this, Register.class);
+                intent = new Intent(this, Register.class);
                 startActivity(intent);
                 finish();
                 break;
