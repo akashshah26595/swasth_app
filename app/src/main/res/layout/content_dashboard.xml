@@ -19,7 +19,8 @@
             android:text="@string/feedback_button"
             android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="80dp"
+            android:id="@+id/beginFeedbackButton"        />
 
         <LinearLayout
             android:gravity="center"

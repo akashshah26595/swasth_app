@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRegister = (Button)findViewById(R.id.btnStartRegister);
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
-        Button beginFeedbackButton = (Button) findViewById(R.id.beginFeedbackButton);
-        beginFeedbackButton.setOnClickListener(this);
+       // Button beginFeedbackButton = (Button) findViewById(R.id.beginFeedbackButton);
+       // beginFeedbackButton.setOnClickListener(this);
     }
 
     @Override
@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.beginFeedbackButton:
-                intent = new Intent(this, FeedbackActivity.class);
-                startActivity(intent);
-                finish();
-                break;
+//            case R.id.beginFeedbackButton:
+//                intent = new Intent(this, FeedbackActivity.class);
+//                startActivity(intent);
+//                finish();
+//                break;
         }
 
     }

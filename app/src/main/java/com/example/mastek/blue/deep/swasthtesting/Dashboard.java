@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     int PROFILE = R.drawable.ic_account_circle_black_24dp;
 
     private Toolbar toolbar;                              // Declaring the Toolbar Object
-
+    Button btnFeedback;
     RecyclerView mRecyclerView;                           // Declaring RecyclerView
     RecyclerView.Adapter mAdapter;                        // Declaring Adapter For Recycler View
     RecyclerView.LayoutManager mLayoutManager;            // Declaring Layout Manager as a linear layout manager
@@ -44,7 +45,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        btnFeedback = (Button)findViewById(R.id.beginFeedbackButton);
+        btnFeedback.setOnClickListener(this);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
@@ -112,24 +114,34 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             case R.id.helpline_image:
                 Intent intent1 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "9833151491"));
                 startActivity(intent1);
+                finish();
                 break;
 
             case R.id.helpline_text:
                 Intent intent2 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "9833151491"));
                 startActivity(intent2);
+                finish();
                 break;
 
             case R.id.centers_image:
                 String map1 = "http://maps.google.co.in/maps?q=" + "Swasth Foundation";
                 Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse(map1));
                 startActivity(intent3);
+                finish();
                 break;
 
             case R.id.centers_text:
                 String map2 = "http://maps.google.co.in/maps?q=" + "Swasth Foundation";
                 Intent intent4 = new Intent(Intent.ACTION_VIEW, Uri.parse(map2));
                 startActivity(intent4);
+                finish();
                 break;
+            case R.id.beginFeedbackButton:
+              Intent intent = new Intent(this, FeedbackActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
         }
 
     }

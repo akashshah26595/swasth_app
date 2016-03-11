@@ -1,7 +1,9 @@
 package com.example.mastek.blue.deep.swasthtesting;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
@@ -10,6 +12,13 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -32,6 +41,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     private RadioGroup optionsRadioGroup;
     private Map<String, String> hashMap;
     private ScrollView mainScrollView;
+    public static final String SERVER_ADDRESS = "http://swasth-india.esy.es/volley/test_swasth_feedback.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,10 +117,35 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             pos++;
             if (pos >= questionsAdapter.getCount()) {
                 Toast.makeText(this, "Feedback finished!", Toast.LENGTH_SHORT).show();
-                Map<String, String> sortedMap = new TreeMap<>(hashMap);
+                final Map<String, String> sortedMap = new TreeMap<>(hashMap);
                 Toast.makeText(this, "Map is: " + sortedMap, Toast.LENGTH_LONG).show();
                 pos = questionsAdapter.getCount() - 1;
-//
+                 StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_ADDRESS, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Toast.makeText(getApplicationContext(),"Feedback Response......." + response , Toast.LENGTH_LONG).show();
+                    Log.i("TEST", "Feedback Response......." + response);
+                    Intent intent = new Intent(FeedbackActivity.this, FeedbackSummary.class);
+                    intent.putExtra("summary",sortedMap.toString());
+                    startActivity(intent);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(),"Feedback Error......." + error , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),"Errror......." + error , Toast.LENGTH_LONG).show();
+                    Log.i("TEST", "Feedback Error......." + error);
+
+                }
+            }){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    return sortedMap;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            requestQueue.add(stringRequest);
+
 //                Intent intent = new Intent(this, MainActivity.class);
 //                intent.putExtra("map", sortedMap);
 //                startActivity(intent);
