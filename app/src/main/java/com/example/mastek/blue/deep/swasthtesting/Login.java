@@ -56,9 +56,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(), "Response......." + response, Toast.LENGTH_LONG).show();
                 Log.i("TEST","Response..." + response);
-                //Intent intent = new Intent(Login.this,MainActivity.class);
-               // intent.putExtra("response",response);
-                //startActivity(intent);
+                Intent intent = new Intent(Login.this,Dashboard.class);
+               intent.putExtra("response",response);
+                startActivity(intent);
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override
