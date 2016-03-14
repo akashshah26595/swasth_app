@@ -1,3 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="/home/akash/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/core-3.2.1_c8de2d9031c534b08e9d45d481c374b1d2f8674c.jar" />
+    </item>
+    <item
+        jar="/home/akash/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/gson-2.2.4_fd343287dba060c907a6220900bb2ed5402cb2b9.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/de.hdodenhof-circleimageview-1.2.1_ecd2ec3d3bd9603c155bfca133d3432eacfa62cf.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/libs/commons-io-2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/commons-io-2.4_64e1f873bc26c58ccc0babf7d823e3522b5a0d11.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.0_629aedfad9a2ee077905fc8085761937c6e6a658.jar" />
+    </item>
+    <item
+        jar="/home/akash/softwares/AndroidSDK/extras/android/m2repository/com/android/support/support-annotations/23.2.0/support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.0_333c0d5847c47e2bf7174bcf966e7611b616d989.jar" />
+    </item>
+    <item
+        jar="/home/akash/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/library-1.0.19_9b32494502d181527dfb838e904bfc26bf90ca3c.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.1.1_667974e154a11e86783229b2338693cdf9b383a1.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.0_5357c39a533e2fb5bcdb5235d78a13c637513f06.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.0_927f2944a4c937ade4c896fff9cd2a35f050932c.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.0_d59152c22f8f453eaae4a8cb91a0e2c7fa0b6da4.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.1.1_10990651010f4e5790e3f10ff42f7ebe50663e6d.jar" />
+    </item>
+    <item
+        jar="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="/home/akash/AndroidStudioProjects/SwasthTestingv2/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0_37a43cfc41a96e70418153c919af08ca5ec26a24.jar" />
+    </item>
+
+</items>
