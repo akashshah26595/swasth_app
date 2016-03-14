@@ -27,7 +27,7 @@
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="Swasth Foundation"
-        android:textColor="#008F76"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -81,7 +81,7 @@
         android:gravity="center"
         android:onClick="onClick"
         android:text="No account yet? Create one."
-        android:textColor="@color/text_color"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp" />
 
 </LinearLayout>

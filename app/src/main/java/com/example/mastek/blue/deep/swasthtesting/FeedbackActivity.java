@@ -116,7 +116,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         if (flag) {
             pos++;
             if (pos >= questionsAdapter.getCount()) {
-                Toast.makeText(this, "Feedback finished!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Thank you for the feedback.", Toast.LENGTH_SHORT).show();
                 final Map<String, String> sortedMap = new TreeMap<>(hashMap);
                 Toast.makeText(this, "Map is: " + sortedMap, Toast.LENGTH_LONG).show();
                 pos = questionsAdapter.getCount() - 1;
@@ -177,6 +177,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             answerLinearLayout.addView(answersAdapter.getView(pos, null, answerLinearLayout));
 
             saveRadioState();
+            flag = true;
         }
     }
 
@@ -225,5 +226,20 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
                 optionsRadioGroup.check(R.id.option5);
         }
         optionsRadioGroup.setOnCheckedChangeListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(pos == 0){
+            startActivity(new Intent(FeedbackActivity.this, Dashboard.class));
+        }
+        else
+            pos--;
+            feedbackLinearLayout.removeViewAt(0);
+            answerLinearLayout.removeViewAt(0);
+            feedbackLinearLayout.addView(questionsAdapter.getView(pos, null, feedbackLinearLayout));
+            answerLinearLayout.addView(answersAdapter.getView(pos, null, answerLinearLayout));
+            saveRadioState();
+            flag = true;
     }
 }

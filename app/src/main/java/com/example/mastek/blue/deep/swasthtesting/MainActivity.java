@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnStartLogin:
                intent = new Intent(this, Login.class);
                 startActivity(intent);
-                finish();
+//                finish();
                 break;
             case R.id.btnStartRegister:
                 intent = new Intent(this, Register.class);
                 startActivity(intent);
-                finish();
+//                finish();
                 break;
 //            case R.id.beginFeedbackButton:
 //                intent = new Intent(this, FeedbackActivity.class);
