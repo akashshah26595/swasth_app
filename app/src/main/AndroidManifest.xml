@@ -61,6 +61,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mastek.blue.deep.swasthtesting.Dashboard" />
         </activity>
+        <activity
+            android:name=".Barcode"
+            android:label="@string/title_activity_barcode"
+            android:parentActivityName=".Dashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.mastek.blue.deep.swasthtesting.Dashboard" />
+        </activity>
     </application>
 
 </manifest>

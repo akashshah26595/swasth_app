@@ -52,7 +52,6 @@ import android.widget.TextView;
                 }
                 else{
 
-
                     Name = (TextView) itemView.findViewById(R.id.name);         // Creating Text View object from header.xml for name
                     email = (TextView) itemView.findViewById(R.id.email);       // Creating Text View object from header.xml for email
                     profile = (ImageView) itemView.findViewById(R.id.circleView);// Creating Image view object from header.xml for profile pic
@@ -62,9 +61,6 @@ import android.widget.TextView;
 
 
         }
-
-
-
         MyAdapter(String Titles[],int Icons[],String Name,String Email, int Profile){ // MyAdapter Constructor with titles and icons parameter
             // titles, icons, name, email, profile pic are passed from the main activity as we
             mNavTitles = Titles;                //have seen earlier
@@ -73,9 +69,6 @@ import android.widget.TextView;
             email = Email;
             profile = Profile;                     //here we assign those passed values to the values we declared here
             //in adapter
-
-
-
         }
 
 
@@ -119,7 +112,7 @@ import android.widget.TextView;
             if(holder.Holderid ==1) {                              // as the list view is going to be called after the header view so we decrement the
                 // position by 1 and pass it to the holder while setting the text and image
                 holder.textView.setText(mNavTitles[position - 1]); // Setting the Text with the array of our Titles
-                holder.imageView.setImageResource(mIcons[position -1]);// Settimg the image with array of our icons
+                holder.imageView.setImageResource(mIcons[position -1]);// Setting the image with array of our icons
             }
             else{
 
@@ -136,7 +129,7 @@ import android.widget.TextView;
         }
 
 
-        // Witht the following method we check what type of view is being passed
+        // With the following method we check what type of view is being passed
         @Override
         public int getItemViewType(int position) {
             if (isPositionHeader(position))
