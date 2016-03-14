@@ -7,10 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by akash on 11/3/16.
- */
-
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 

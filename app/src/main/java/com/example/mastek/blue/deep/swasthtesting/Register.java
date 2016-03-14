@@ -44,7 +44,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         button = (Button) findViewById(R.id.btnRegister);
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
-        textView = (TextView)findViewById(R.id.textview);
+        textView = (TextView)findViewById(R.id.textview_signup);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

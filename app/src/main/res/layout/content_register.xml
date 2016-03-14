@@ -27,7 +27,7 @@
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="Swasth Foundation"
-        android:textColor="#008F76"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -102,7 +102,7 @@
         android:text="Sign Up" />
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/textview_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -110,7 +110,7 @@
         android:gravity="center"
         android:onClick="onClick"
         android:text="Already a member? Login."
-        android:textColor="@color/text_color"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp" />
 
 </LinearLayout>

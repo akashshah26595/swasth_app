@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -41,6 +42,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         pass = (EditText)findViewById(R.id.etLPassword);
         button = (Button)findViewById(R.id.btnLogin);
         button.setOnClickListener(this);
+
+        TextView textView = (TextView)findViewById(R.id.link_signup);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, Register.class));
+            }
+        });
 
     }
 
