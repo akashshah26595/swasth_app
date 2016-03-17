@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainScrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:paddingBottom="12dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="12dp"
+    tools:context="com.example.mastek.blue.deep.swasthtesting.FeedbackActivity">
 
     <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="12dp"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingTop="16dp"
-        tools:context="com.example.mastek.blue.deep.swasthtesting.FeedbackActivity">
+        android:layout_height="wrap_content">
 
         <View
             android:id="@+id/divider0"
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="0dp"
             android:background="@color/colorPrimaryDark" />
 
         <LinearLayout
             android:id="@+id/feedbackLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/divider0"
             android:orientation="vertical" />
 
         <View
@@ -35,54 +36,76 @@
             android:layout_below="@id/feedbackLinearLayout"
             android:layout_marginBottom="12dp"
             android:background="@color/colorPrimaryDark" />
+    </RelativeLayout>
 
+
+    <ScrollView
+        android:fadeScrollbars="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarSize="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_below="@id/header">
         <LinearLayout
-            android:id="@+id/answerLinearLayout"
+            android:id="@+id/answerScrollViewLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/divider3"
+            android:layout_margin="0dp"
             android:orientation="vertical" />
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
         <View
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:layout_below="@id/answerLinearLayout"
             android:layout_marginBottom="12dp"
             android:layout_marginTop="12dp"
             android:background="@color/colorPrimaryDark" />
 
-        <Button
-            android:id="@+id/previousButton"
-            android:layout_width="75dp"
-            android:layout_height="60dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/divider2"
-            android:layout_marginLeft="16dp"
-            android:background="@drawable/ic_chevron_left_black_24dp"
-            android:backgroundTint="@android:color/darker_gray"
-            android:gravity="center" />
+        <RelativeLayout
+            android:id="@+id/button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/previousButton"
+                android:layout_width="75dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/ic_chevron_left_black_24dp"
+                android:backgroundTint="@android:color/darker_gray"
+                android:gravity="center" />
 
 
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="75dp"
-            android:layout_height="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/divider2"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/ic_chevron_right_black_24dp"
-            android:backgroundTint="@android:color/darker_gray"
-            android:gravity="center" />
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="75dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/ic_chevron_right_black_24dp"
+                android:backgroundTint="@android:color/darker_gray"
+                android:gravity="center" />
+        </RelativeLayout>
 
         <View
             android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:layout_below="@id/nextButton"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="0dp"
             android:layout_marginTop="12dp"
             android:background="@color/colorPrimaryDark" />
+    </LinearLayout>
 
-    </RelativeLayout>
-</ScrollView>
+</RelativeLayout>
