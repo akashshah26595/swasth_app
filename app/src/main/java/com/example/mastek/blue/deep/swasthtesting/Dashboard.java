@@ -16,14 +16,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.PopupMenu.OnMenuItemClickListener;
+import android.widget.Toast;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,7 +43,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
     private Toolbar toolbar;                              // Declaring the Toolbar Object
 
-    Button btnFeedback;
+    LinearLayout btnFeedback;
 
     RecyclerView mRecyclerView;                           // Declaring RecyclerView
     RecyclerView.Adapter mAdapter;                        // Declaring Adapter For Recycler View
@@ -58,7 +62,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        btnFeedback = (Button)findViewById(R.id.beginFeedbackButton);
+        btnFeedback = (LinearLayout)findViewById(R.id.feedbackLinearLayout);
         btnFeedback.setOnClickListener(this);
 
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -95,7 +99,53 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         mRecyclerView.setAdapter(mAdapter);                              // Setting the adapter to RecyclerView
 
-        mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
+        final GestureDetector mGestureDetector = new GestureDetector(Dashboard.this, new GestureDetector.SimpleOnGestureListener() {
+
+            @Override public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+
+        });
+
+        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+                View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+
+                int i = recyclerView.getChildAdapterPosition(child);     //handling nav drawer onclick events
+                switch (i){
+                    case 1:
+                        Drawer.closeDrawers();
+                        break;
+                }
+
+                if(child!=null && mGestureDetector.onTouchEvent(motionEvent)){
+                    Drawer.closeDrawers();
+
+
+                    Toast.makeText(Dashboard.this, "The Item Clicked is: " + recyclerView.getChildPosition(child), Toast.LENGTH_SHORT).show();
+
+                    return true;
+
+                }
+
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+
+            }
+        });
+
+
+            mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
 
         mRecyclerView.setLayoutManager(mLayoutManager);                 // Setting the layout Manager
 
@@ -149,7 +199,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 startActivity(intent4);
                 break;
 
-            case R.id.beginFeedbackButton:
+            case R.id.feedbackLinearLayout:
               Intent intent = new Intent(this, FeedbackActivity.class);
                 startActivity(intent);
 //                finish();
