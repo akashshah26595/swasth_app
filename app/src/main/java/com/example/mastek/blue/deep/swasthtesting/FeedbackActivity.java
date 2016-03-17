@@ -50,7 +50,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
 
         Button nextButton = (Button) findViewById(R.id.nextButton);
         Button previousButton = (Button) findViewById(R.id.previousButton);
-//        mainScrollView = (ScrollView) findViewById(R.id.mainScrollView);
+        mainScrollView = (ScrollView) findViewById(R.id.mainScrollView);
 
         nextButton.setOnClickListener(this);
         previousButton.setOnClickListener(this);
@@ -74,7 +74,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             feedbackLinearLayout = (LinearLayout) findViewById(R.id.feedbackLinearLayout);
             questionsAdapter = new QuestionsAdapter(this, feedbackCollection);
 
-            answerLinearLayout = (LinearLayout) findViewById(R.id.answerScrollViewLayout);
+            answerLinearLayout = (LinearLayout) findViewById(R.id.answerLinearLayout);
             answersAdapter = new AnswersAdapter(this, answersCollection);
             feedbackLinearLayout.addView(questionsAdapter.getView(pos, null, feedbackLinearLayout));
             answerLinearLayout.addView(answersAdapter.getView(pos, null, answerLinearLayout));
@@ -93,14 +93,14 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         //mainScrollView.pageScroll(View.FOCUS_UP);
 
         // Wait until my scrollView is ready
-//        mainScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-//            @Override
-//            public void onGlobalLayout() {
-//                // Ready, move up
-//                mainScrollView.fullScroll(View.FOCUS_UP);
-//                mainScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-//            }
-//        });
+        mainScrollView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                // Ready, move up
+                mainScrollView.fullScroll(View.FOCUS_UP);
+                mainScrollView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
 
         switch (v.getId()) {
             case R.id.nextButton:
@@ -232,7 +232,6 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     public void onBackPressed() {
         if(pos == 0){
             startActivity(new Intent(FeedbackActivity.this, Dashboard.class));
-//            saveRadioState();
         }
         else
             pos--;
