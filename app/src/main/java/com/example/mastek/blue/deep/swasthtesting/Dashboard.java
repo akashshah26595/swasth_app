@@ -49,7 +49,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     RecyclerView.Adapter mAdapter;                        // Declaring Adapter For Recycler View
     RecyclerView.LayoutManager mLayoutManager;            // Declaring Layout Manager as a linear layout manager
     DrawerLayout Drawer;                                  // Declaring DrawerLayout
-
+    ImageButton imageButton;
     ActionBarDrawerToggle mDrawerToggle;                  // Declaring Action Bar Drawer Toggle
 
     // Declaring Action Bar Drawer Toggle
@@ -64,7 +64,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         btnFeedback = (LinearLayout)findViewById(R.id.feedbackLinearLayout);
         btnFeedback.setOnClickListener(this);
-
+        imageButton = (ImageButton)findViewById(R.id.barcode_image);
+        imageButton.setOnClickListener(this);
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
 //        setSupportActionBar(toolbar);
 
@@ -186,7 +187,10 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 //                Intent intent2 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "9833151491"));
 //                startActivity(intent2);
 //                break;
-
+            case R.id.barcode_image:
+                Intent intent5 = new Intent(Dashboard.this,Barcode.class);
+                startActivity(intent5);
+                break;
             case R.id.centers_image:
                 String map1 = "http://maps.google.co.in/maps?q=" + "Swasth Foundation";
                 Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse(map1));
