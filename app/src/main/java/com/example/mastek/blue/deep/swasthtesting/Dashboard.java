@@ -1,6 +1,7 @@
 package com.example.mastek.blue.deep.swasthtesting;
 
 import android.app.AlertDialog;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.ClipData;
@@ -16,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,11 +38,11 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
     //Similarly we Create a String Resource for the name and email in the header view
     //And we also create a int resource for profile picture in the header view
+    private UserLocalStore userLocalStore;
 
     String NAME = "Jay Shah";
     String CARD_NO = "123456";
     int PROFILE = R.drawable.ic_account_circle_black_24dp;
-
     private Toolbar toolbar;                              // Declaring the Toolbar Object
 
     LinearLayout btnFeedback;
@@ -66,6 +68,20 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         btnFeedback.setOnClickListener(this);
         imageButton = (ImageButton)findViewById(R.id.barcode_image);
         imageButton.setOnClickListener(this);
+
+        userLocalStore = new UserLocalStore(getApplicationContext());
+        boolean status = userLocalStore.getLoginStatus();
+
+        Intent intent = new Intent(Dashboard.this,MainActivity.class);
+
+        if(!status){
+            Log.d("TEST", "SharedPref status" + status);
+            startActivity(intent);
+        }
+        else{
+            Log.d("TEST","SharedPref Dashboard status" + status);
+        }
+
 //        toolbar = (Toolbar) findViewById(R.id.tool_bar);
 //        setSupportActionBar(toolbar);
 
@@ -209,6 +225,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 //                finish();
                 break;
 
+
         }
 
     }
@@ -249,6 +266,12 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
+            Intent intent = new Intent(Dashboard.this,MainActivity.class);
+            Log.i("TEST", "Logout Test");
+            userLocalStore.clearUserData();
+            userLocalStore.setLoggedInUser(false);
+            startActivity(intent);
+            finish();
             return true;
         }
 

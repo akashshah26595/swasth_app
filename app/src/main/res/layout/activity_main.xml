@@ -27,13 +27,6 @@
         android:id="@+id/btnStartLogin"
 
         />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signup"
-        android:layout_marginBottom="25dp"
-        android:id="@+id/btnStartRegister"
 
-        />
 
 </LinearLayout>

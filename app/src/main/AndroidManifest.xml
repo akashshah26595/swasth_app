@@ -36,17 +36,6 @@
         </activity>
 
         <activity
-            android:name=".Register"
-            android:label="@string/title_activity_register"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mastek.blue.deep.swasthtesting.MainActivity" />
-        </activity>
-
-        <activity
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
             android:screenOrientation="portrait"

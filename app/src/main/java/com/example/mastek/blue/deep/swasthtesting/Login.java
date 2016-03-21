@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public static final String SERVER_ADDRESS = "http://swasth-india.esy.es/volley/login.php";
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
-
+    private UserLocalStore userLocalStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,15 +43,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         button = (Button)findViewById(R.id.btnLogin);
         button.setOnClickListener(this);
 
-        TextView textView = (TextView)findViewById(R.id.link_signup);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
             }
-        });
-
-    }
 
     @Override
     public void onClick(View v) {
@@ -63,12 +55,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_ADDRESS, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Response......." + response, Toast.LENGTH_LONG).show();
-                Log.i("TEST","Response..." + response);
-                Intent intent = new Intent(Login.this,Dashboard.class);
-               intent.putExtra("response",response);
-                startActivity(intent);
-                finish();
+                //Toast.makeText(getApplicationContext(), "Response......." + response, Toast.LENGTH_LONG).show();
+                Log.i("TEST", "Response..." + response);
+                if(response.equals("Success")){
+                    Intent intent = new Intent(Login.this,Dashboard.class);
+                    intent.putExtra("response",response);
+                    userLocalStore = new UserLocalStore(getApplicationContext());
+                    userLocalStore.setLoggedInUser(true);
+                    userLocalStore.storeUserData(username,password);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Invalid Credentials......." + response, Toast.LENGTH_LONG).show();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override

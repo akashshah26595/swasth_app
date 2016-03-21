@@ -17,25 +17,21 @@ import android.content.SharedPreferences;
     public class UserLocalStore {
         public static final String SP_NAME = "userDetails";
         SharedPreferences userLocalDatabase;
-
+        String username;
+        String password;
         public UserLocalStore(Context context){
             userLocalDatabase = context.getSharedPreferences(SP_NAME,0);
         }
-        public void storeUserData(){
+        public void storeUserData(String username, String password){
             SharedPreferences.Editor spEditor = userLocalDatabase.edit();
-            spEditor.putString("username","");
-            spEditor.putString("password","");
-            spEditor.putString("age","");
-            spEditor.putString("name","");
+            spEditor.putString("username",username);
+            spEditor.putString("password",password);
             spEditor.commit();
         }
         public void getLoggedInUser(){
             String username = userLocalDatabase.getString("username", "");
             String password = userLocalDatabase.getString("password","");
-            String age = userLocalDatabase.getString("age","");
-            String name = userLocalDatabase.getString("name","");
-
-           // User storedUser = new User(name,username,password,age);
+            // User storedUser = new User(name,username,password,age);
 
             //return  storedUser;
         }
@@ -47,7 +43,7 @@ import android.content.SharedPreferences;
         }
 
         public boolean getLoginStatus(){
-            if(userLocalDatabase.getBoolean("loggedIn",false)==true){
+            if(userLocalDatabase.getBoolean("loggedIn",false)){
                 return true;
             }
             else{

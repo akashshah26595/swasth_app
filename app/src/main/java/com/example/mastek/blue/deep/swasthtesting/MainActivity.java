@@ -3,25 +3,32 @@ package com.example.mastek.blue.deep.swasthtesting;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnLogin;
     Intent intent;
-    Button btnRegister;
-
+    public UserLocalStore userLocalStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         btnLogin = (Button)findViewById(R.id.btnStartLogin);
-        btnRegister = (Button)findViewById(R.id.btnStartRegister);
         btnLogin.setOnClickListener(this);
-        btnRegister.setOnClickListener(this);
        // Button beginFeedbackButton = (Button) findViewById(R.id.beginFeedbackButton);
        // beginFeedbackButton.setOnClickListener(this);
+        userLocalStore = new UserLocalStore(getApplicationContext());
+        boolean status = userLocalStore.getLoginStatus();
+        Intent intent = new Intent(MainActivity.this,Dashboard.class);
+        Log.d("TEST",userLocalStore.getLoginStatus() + "");
+        if(status){
+            Log.d("TEST","SharedPref status" + status);
+            startActivity(intent);
+        }
+
     }
 
     @Override
@@ -34,11 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
 //                finish();
                 break;
-            case R.id.btnStartRegister:
-                intent = new Intent(this, Register.class);
-                startActivity(intent);
-//                finish();
-                break;
+
 //            case R.id.beginFeedbackButton:
 //                intent = new Intent(this, FeedbackActivity.class);
 //                startActivity(intent);
