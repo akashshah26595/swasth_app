@@ -40,8 +40,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     //And we also create a int resource for profile picture in the header view
     private UserLocalStore userLocalStore;
 
-    String NAME = "Jay Shah";
-    String CARD_NO = "123456";
+    String NAME = "";
+    String CARD_NO = "";
     int PROFILE = R.drawable.ic_account_circle_black_24dp;
     private Toolbar toolbar;                              // Declaring the Toolbar Object
 
@@ -52,15 +52,22 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     RecyclerView.LayoutManager mLayoutManager;            // Declaring Layout Manager as a linear layout manager
     DrawerLayout Drawer;                                  // Declaring DrawerLayout
     ImageButton imageButton;
+
     ActionBarDrawerToggle mDrawerToggle;                  // Declaring Action Bar Drawer Toggle
-
+    TextView textView;
     // Declaring Action Bar Drawer Toggle
-
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
+        user = new User(getApplicationContext());
+        CARD_NO = Integer.toString(user.getCardNumber());
+        int credits = Integer.parseInt(Integer.toString(user.getCredits()));
+        Toast.makeText(getApplicationContext(),"Your Credits: " + credits, Toast.LENGTH_LONG).show();
+        NAME = user.getName();
+        textView = (TextView)findViewById(R.id.textView);
+        textView.setText("Card No: " + CARD_NO);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 

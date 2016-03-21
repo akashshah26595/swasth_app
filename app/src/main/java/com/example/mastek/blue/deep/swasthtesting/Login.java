@@ -21,6 +21,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +31,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     EditText etusername;
     EditText pass;
     Button button;
-    public static final String SERVER_ADDRESS = "http://swasth-india.esy.es/volley/login.php";
+    private User user;
+//  public static final String SERVER_ADDRESS = "http://swasth-india.esy.es/volley/login.php";
+    public static final String SERVER_ADDRESS = "http://swasth-india.esy.es/swasth/user_login.php";
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
     private UserLocalStore userLocalStore;
@@ -55,18 +60,39 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, SERVER_ADDRESS, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                //Toast.makeText(getApplicationContext(), "Response......." + response, Toast.LENGTH_LONG).show();
+                int card_number=0,credits=0;
+                String name="";
+//                Toast.makeText(getApplicationContext(), "Login Response 1......." + response, Toast.LENGTH_LONG).show();
                 Log.i("TEST", "Response..." + response);
-                if(response.equals("Success")){
+                if(response.contains("Failure")){
+                        Toast.makeText(getApplicationContext(), "Invalid Credentials......." + response, Toast.LENGTH_LONG).show();
+                }
+                else if(response!=null){
+                    Log.i("TEST", "Inside success...");
+
+                    try {
+                        Log.i("TEST", "Inside try...");
+                        JSONObject obj = new JSONObject(response);
+                        name = obj.getString("fname");
+                        card_number = obj.getInt("user_card_number");
+                         credits = obj.getInt("u_credits");
+
+                        Log.d("TEST","Value of fname:" + name);
+                        Log.d("TEST","Value of card number:" + card_number);
+                        Log.d("TEST","Value of credits:" + credits);
+                    }
+                    catch (Exception ex){
+
+                    }
+//                    Toast.makeText(getApplicationContext(), "Login Response 2......." + response, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Login.this,Dashboard.class);
-                    intent.putExtra("response",response);
+                    user = new User(getApplicationContext());
+                    user.addUserDetails(credits,card_number, name);
                     userLocalStore = new UserLocalStore(getApplicationContext());
                     userLocalStore.setLoggedInUser(true);
                     userLocalStore.storeUserData(username,password);
                     startActivity(intent);
                     finish();
-                }else {
-                    Toast.makeText(getApplicationContext(), "Invalid Credentials......." + response, Toast.LENGTH_LONG).show();
                 }
 
             }
